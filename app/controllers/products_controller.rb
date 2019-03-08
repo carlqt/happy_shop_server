@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.filter(filter_params)
+    @products = @products.price_sort(params[:sort])
   end
 
   def show

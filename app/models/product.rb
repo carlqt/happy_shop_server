@@ -22,6 +22,10 @@ class Product < ApplicationRecord
     result
   end
 
-  def self.sort(params)
+  def self.price_sort(name = nil)
+    return order(nil) if name.nil?
+
+    direction = name[0] == "-" ? "desc" : "asc"
+    order("price_cents #{direction}")
   end
 end

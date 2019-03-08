@@ -9,7 +9,7 @@
 20.times do
   Product.create({
     price_cents: (Faker::Commerce.price * 100).to_i,
-    name: Faker::Commerce.produce_name,
+    name: Faker::Commerce.product_name,
     description: Faker::ChuckNorris.fact,
   })
 end

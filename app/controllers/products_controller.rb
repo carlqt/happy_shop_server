@@ -1,9 +1,11 @@
 class ProductsController < ApplicationController
+  include Pagy::Backend
   before_action :format_price_param
 
   def index
     @products = Product.filter(filter_params)
     @products = @products.price_sort(params[:sort])
+    @pagy, @products = pagy(@products, page: params[:page] || 1)
   end
 
   def show

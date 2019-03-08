@@ -5,6 +5,10 @@ class ProductsController < ApplicationController
     @products = Product.filter(filter_params)
   end
 
+  def show
+    @product = Product.find(params[:id])
+  end
+
   private
 
   def filter_params

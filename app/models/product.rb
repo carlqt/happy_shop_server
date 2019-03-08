@@ -13,12 +13,15 @@ class Product < ApplicationRecord
 
   scope :price, ->(price_range) { where(price_cents: price_range) }
 
-  def self.filter(filter_params)
+  def self.filter(params)
     result = self.where(nil)
-    filter_params.each do |key, val|
+    params.each do |key, val|
       result = result.public_send(key, val) if val.present?
     end
 
     result
+  end
+
+  def self.sort(params)
   end
 end

@@ -4,7 +4,9 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.filter(filter_params)
-    @products = @products.price_sort(params[:sort])
+      .price_sort(params[:sort])
+
+    # @products = @products.price_sort(params[:sort])
     @pagy, @products = pagy(@products, page: params[:page] || 1)
   end
 

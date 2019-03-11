@@ -13,6 +13,7 @@ gem 'money-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'pagy'
+gem 'rswag'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -43,6 +44,11 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'faker'
+end
+
+group :test do
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 

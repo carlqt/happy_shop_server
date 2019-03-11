@@ -21,7 +21,20 @@ RSpec.configure do |config|
       },
       paths: {},
       definitions: {
-        product: {
+        product_response: {
+          type: :object,
+          properties: {
+            id: { type: :integer },
+            name: { type: :string },
+            description: { type: :string },
+            price_cents: { type: :integer },
+            categories: {
+              type: :array,
+              items: { type: :string },
+            },
+          }
+        },
+        product_list_response: {
           type: :object,
           properties: {
             id: { type: :integer },
@@ -32,8 +45,19 @@ RSpec.configure do |config|
               properties: {
                 currency: { type: :string },
                 amount: { type: :number },
-              },
-            },
+              }
+            }
+          }
+        },
+        meta_response: {
+          type: :object,
+          properties: {
+            to: { type: :integer },
+            from: { type: :integer },
+            page: { type: :integer },
+            items: { type: :integer },
+            total_pages: { type: :integer },
+            total_items: { type: :integer },
           }
         }
       },

@@ -6,7 +6,6 @@ class ProductsController < ApplicationController
     @products = Product.filter(filter_params)
       .price_sort(params[:sort])
 
-    # @products = @products.price_sort(params[:sort])
     @pagy, @products = pagy(@products, page: params[:page] || 1)
   end
 

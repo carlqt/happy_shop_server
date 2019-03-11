@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   include Pagy::Backend
+  before_action :format_categories_param
   before_action :format_price_param
 
   def index
@@ -24,5 +25,14 @@ class ProductsController < ApplicationController
 
     price_low, price_high = params[:price].split("..").map(&:to_i)
     params[:price] = price_low..price_high
+  end
+
+  # Method to support the Open API specs for an array type
+  def format_categories_param
+    return unless params[:categories]
+
+    if params[:categories].is_a?(String)
+      params[:categories] = params[:categories].split(',')
+    end
   end
 end

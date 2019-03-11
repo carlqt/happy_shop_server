@@ -19,7 +19,24 @@ RSpec.configure do |config|
         title: 'API V1',
         version: 'v1'
       },
-      paths: {}
+      paths: {},
+      definitions: {
+        product: {
+          type: :object,
+          properties: {
+            id: { type: :integer },
+            name: { type: :string },
+            description: { type: :string },
+            price: {
+              type: :object,
+              properties: {
+                currency: { type: :string },
+                amount: { type: :number },
+              },
+            },
+          }
+        }
+      },
     }
   }
 end

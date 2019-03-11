@@ -6,9 +6,8 @@ class Product < ApplicationRecord
 
   scope :categories, lambda { |categories|
     joins(:categories)
-      .where(categories: { name: categories })
+      .merge(Category.where(name: categories))
       .group(:id)
-      .having("COUNT(*) = #{categories.length}")
   }
 
   scope :price, ->(price_range) { where(price_cents: price_range) }

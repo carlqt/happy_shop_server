@@ -6,10 +6,26 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-20.times do
-  Product.create({
-    price_cents: (Faker::Commerce.price * 100).to_i,
+categories = %w(
+  men
+  women
+  accessories
+  organic
+  natural
+  makeup
+)
+
+categories.each do |category|
+  Category.create(name: category)
+end
+
+100.times do
+  product = Product.create({
+    price_cents: Faker::Number.between(100, 30000),
     name: Faker::Commerce.product_name,
     description: Faker::ChuckNorris.fact,
   })
+
+  category_ids = Category.pluck(:id)
+  product.product_categories.create(category_id: category_ids.sample)
 end

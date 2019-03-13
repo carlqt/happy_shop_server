@@ -11,6 +11,7 @@ This is the backend for our Happy Shop application.
 
 # Note
 The "Add to Cart" button is there for aesthetics only. Coming soon.
+Used sqlite3 so it's easier to get it up and running.
 
 ### Tech
 
@@ -25,6 +26,7 @@ Happy Shop uses a number of open source projects to work properly:
 * pry-rails
 * factory_bot
 * money-rails
+* sqlite3
 
 ### Installation
 Install the dependencies. Run the migration and seed. And run the server as `rails -p 8000`. Note: that the frontend is expecting port `8000`

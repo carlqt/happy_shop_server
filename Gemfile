@@ -40,7 +40,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'faker'
   gem 'rswag-specs'
-  gem 'sqlite3'
 end
 
 group :development do

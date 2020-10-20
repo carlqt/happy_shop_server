@@ -14,6 +14,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'pagy'
 gem 'rswag-api'
 gem 'rswag-ui'
+gem 'parser'
 
 gem 'pg'
 # Use Redis adapter to run Action Cable in production

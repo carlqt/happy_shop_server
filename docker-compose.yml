@@ -2,9 +2,7 @@ version: '3'
 services:
   web:
     build: .
-    image: "happy_shop"
+    image: "happy_shop_server"
     command: "bundle exec rails server -p 8000 -b 0.0.0.0"
-    volumes:
-      - ".:/app"
     ports:
       - "8000:8000"
